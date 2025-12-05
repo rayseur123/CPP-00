@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:56:58 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 14:21:58 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/05 14:52:43 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class	PhoneBook
 		void	display_contacts();
 		void	display_contact(int i);
 		void	exit_prompt();
+		void	display_contact_full(int i);
+
 };
 
 #endif
