@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:56 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 13:21:20 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/05 14:39:09 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::PhoneBook()
 void	PhoneBook::add_contact(Contact contact)
 {
 	list_of_contact[index_contact] = contact;
-	if (index_contact <= 7)
+	if (index_contact < 7)
 		index_contact++;
 	else
 		index_contact = 0;
@@ -97,22 +97,52 @@ std::string	dot_manage(std::string str)
 	return (str.substr(0, 9));
 }
 
-void	PhoneBook::display_contact()
+void	PhoneBook::display_contact(int i)
 {
+	std::cout << std::setw(10) << i ;
+	std::cout << "|";
+	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_first_name());
+	std::cout << "|";
+	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_last_name());
+	std::cout << "|";
+	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_nick_name());
+	std::cout << "|\n";
+}
+
+void	PhoneBook::display_contacts()
+{
+	std::cout << std::setw(10) << "ID" ;
+	std::cout << "|";
+	std::cout << std::setw(10) << "First Name";
+	std::cout << "|";
+	std::cout << std::setw(10) << "Last Name";
+	std::cout << "|";
+	std::cout << std::setw(10) << "Nick Name";
+	std::cout << "|\n";
 	for (size_t i = 0; i < nb_contact; i++)
+		display_contact(i + 1);
+}
+
+void	PhoneBook::exit_prompt()
+{
+	std::string	user_line;
+
+	std::cout << "Entrez un id pour voir un user" << "\n";
+	std::getline(std::cin, user_line);
+	while (user_line != "EXIT")
 	{
-		std::cout << std::setw(10) << i + 1 ;
-		std::cout << " | ";
-		std::cout << std::setw(10) << dot_manage(list_of_contact[i].get_first_name());
-		std::cout << " | ";
-		std::cout << std::setw(10) << dot_manage(list_of_contact[i].get_last_name());
-		std::cout << " | ";
-		std::cout << std::setw(10) << dot_manage(list_of_contact[i].get_nick_name());
-		std::cout << " |\n ";
-	}
+		if (is_number(user_line)
+			&& atoi(user_line.c_str()) <= (int)nb_contact
+			&& atoi(user_line.c_str()) > 0)
+			display_contact(atoi(user_line.c_str()));
+		else
+			std::cout << "Wrong id\n";
+		std::getline(std::cin, user_line);
+	}	
 }
 
 void	PhoneBook::search_contact()
 {
-	display_contact();
+	display_contacts();
+	exit_prompt();
 }
