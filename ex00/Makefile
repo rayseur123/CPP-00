@@ -1,0 +1,107 @@
+NAME := Megaphone
+
+# ---------------------------------------------------------#
+#                       DIRECTORIES                        #
+# ---------------------------------------------------------#
+
+SRCS_DIR :=
+
+# ---------------------------------------------------------#
+#                       SOURCE FILES                       #
+# ---------------------------------------------------------#
+
+SRCS_MEGA := megaphone.cpp \
+
+# ---------------------------------------------------------#
+#                       BUILD SOURCE                       #
+# ---------------------------------------------------------#
+
+SRCS =	$(addprefix $(SRCS_DIR), $(SRCS_MEGA)) \
+
+# ---------------------------------------------------------#
+#                           LIBS                           #
+# ---------------------------------------------------------#
+
+LIBS_DIR :=
+
+LIBS_TARGET :=
+
+LIBS_NAMES := $(patsubst %.a,%,$(notdir $(LIBS_TARGET)))
+
+LIBS_INCLUDES := $(addprefix $(LIBS_DIR), $(addsuffix /include,$(LIBS_NAMES))) # si pas de /include ajouter manuellement
+
+CPPFLAGS += $(addprefix -I, $(LIBS_INCLUDES))
+
+SYS_LIBS = m X11 Xext
+SYS_LIBS := $(addprefix -l, $(SYS_LIBS))
+
+# ---------------------------------------------------------#
+#                           OBJS                           #
+# ---------------------------------------------------------#
+
+BUILD_DIR := .build/
+
+OBJS_DIR := $(addprefix $(BUILD_DIR), objs/)
+OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
+
+# ---------------------------------------------------------#
+#                           DEPS                           #
+# ---------------------------------------------------------#
+
+DEPS := $(OBJS:.o=.d)
+
+CPPFLAGS += -MMD -MP
+
+# ---------------------------------------------------------#
+#                   CONFIG COMPILATION                     #
+# ---------------------------------------------------------#
+
+CFLAGS += -std=c++98 -Wall -Wextra -Werror
+
+CC = c++
+
+# ---------------------------------------------------------#
+#                           MOD                            #
+# ---------------------------------------------------------#
+
+ifeq ($(MOD), debug)
+	CFLAGS += -g3
+endif
+
+# ---------------------------------------------------------#
+#                          RULES                           #
+# ---------------------------------------------------------#
+
+all: $(NAME)
+
+$(NAME): $(LIBS_TARGET) $(OBJS)
+	$(CC) $^ -o $@ $(SYS_LIBS)
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+$(LIBS_TARGET): force
+	$(MAKE) -C $(dir $@)
+
+$(force):
+
+# ---------------------------------------------------------#
+#                       CLEAN                              #
+# ---------------------------------------------------------#
+
+clean:
+	rm -rf $(BUILD_DIR)
+	$(foreach lib,$(LIBS_TARGET),$(MAKE) -C $(dir $(lib)) clean;)
+
+fclean: clean
+	rm -rf $(NAME)
+	$(foreach lib,$(LIBS_TARGET),$(MAKE) -C $(dir $(lib)) fclean;)
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY : clean fclean all re force
+
+-include $(DEPS)
