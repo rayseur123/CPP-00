@@ -11,8 +11,8 @@ SRCS_DIR := srcs/
 # ---------------------------------------------------------#
 
 SRCS_PHONE :=	main.cpp \
-				phoneBook.cpp \
-				contact.cpp \
+				PhoneBook.cpp \
+				Contact.cpp \
 
 # ---------------------------------------------------------#
 #                       BUILD SOURCE                       #

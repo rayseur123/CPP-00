@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:16:07 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 12:55:36 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/05 15:59:49 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include "contact.h"
+#include "Contact.h"
 
 void		Contact::set_first_name(std::string str)
 {

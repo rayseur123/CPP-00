@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:56 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 14:54:20 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/05 16:00:43 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.h"
-#include "phoneBook.h"
+#include "Contact.h"
+#include "PhoneBook.h"
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -156,8 +156,7 @@ void	PhoneBook::exit_prompt()
 	std::string	user_line;
 
 	std::cout << "Entrez un id pour voir un user" << "\n";
-	std::getline(std::cin, user_line);
-	while (!user_line.empty())
+	while (std::getline(std::cin, user_line) && !user_line.empty())
 	{
 		if (is_number(user_line)
 			&& atoi(user_line.c_str()) <= (int)nb_contact
