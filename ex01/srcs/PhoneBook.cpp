@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:56 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 16:00:43 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/08 11:23:27 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,31 +110,12 @@ void	PhoneBook::display_contact(int i)
 
 void	PhoneBook::display_contact_full(int i)
 {
-	std::cout << std::setw(10) << "ID" ;
-	std::cout << "|";
-	std::cout << std::setw(10) << "First Name";
-	std::cout << "|";
-	std::cout << std::setw(10) << "Last Name";
-	std::cout << "|";
-	std::cout << std::setw(10) << "Nick Name";
-	std::cout << "|";
-	std::cout << std::setw(10) << "Phone num";
-	std::cout << "|";
-	std::cout << std::setw(10) << "Dark sec";
-	std::cout << "|\n";
-	
-	std::cout << std::setw(10) << i ;
-	std::cout << "|";
-	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_first_name());
-	std::cout << "|";
-	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_last_name());
-	std::cout << "|";
-	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_nick_name());
-	std::cout << "|";
-	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_phone_number());
-	std::cout << "|";
-	std::cout << std::setw(10) << dot_manage(list_of_contact[i - 1].get_darkest_secret());
-	std::cout << "|\n";
+	std::cout << std::setw(10) << "- First Name : " << list_of_contact[i - 1].get_first_name() << "\n";
+	std::cout << std::setw(10) << "- Last Name : " << list_of_contact[i - 1].get_last_name() << "\n";
+	std::cout << std::setw(10) << "- Nick Name : " << list_of_contact[i - 1].get_nick_name() << "\n";
+	std::cout << std::setw(10) << "- Phone num : " << list_of_contact[i - 1].get_phone_number() << "\n";
+	std::cout << std::setw(10) << "- Dark sec : " << list_of_contact[i - 1].get_darkest_secret() << "\n";
+	std::cout << "\n";
 }
 
 void	PhoneBook::display_contacts()
@@ -164,7 +145,6 @@ void	PhoneBook::exit_prompt()
 			display_contact_full(atoi(user_line.c_str()));
 		else
 			std::cout << "Wrong id\n";
-		std::getline(std::cin, user_line);
 	}	
 }
 
