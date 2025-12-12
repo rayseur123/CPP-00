@@ -6,12 +6,12 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:25:59 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/08 11:14:28 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/09 13:15:57 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.h"
-#include "PhoneBook.h"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
 

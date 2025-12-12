@@ -6,12 +6,12 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:16:07 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 15:59:49 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/09 13:16:09 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include "Contact.h"
+#include "Contact.hpp"
 
 void		Contact::set_first_name(std::string str)
 {

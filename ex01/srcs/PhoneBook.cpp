@@ -6,12 +6,12 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:56 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/08 11:23:27 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/11 17:17:49 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.h"
-#include "PhoneBook.h"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -137,7 +137,7 @@ void	PhoneBook::exit_prompt()
 	std::string	user_line;
 
 	std::cout << "Entrez un id pour voir un user" << "\n";
-	while (std::getline(std::cin, user_line) && !user_line.empty())
+	while (std::getline(std::cin, user_line) && user_line != "EXIT")
 	{
 		if (is_number(user_line)
 			&& atoi(user_line.c_str()) <= (int)nb_contact

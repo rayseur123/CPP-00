@@ -38,7 +38,7 @@ LIBS_TARGET :=
 
 LIBS_NAMES := $(patsubst %.a,%,$(notdir $(LIBS_TARGET)))
 
-LIBS_INCLUDES := $(addprefix $(LIBS_DIR), $(addsuffix /include,$(LIBS_NAMES))) # si pas de /include ajouter manuellement
+LIBS_INCLUDES := $(addprefix $(LIBS_DIR), $(addsuffix /includes,$(LIBS_NAMES))) # si pas de /include ajouter manuellement
 
 CPPFLAGS += $(addprefix -I, $(LIBS_INCLUDES))
 
