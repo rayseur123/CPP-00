@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:56:58 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/09 13:16:22 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/12 14:46:17 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class	PhoneBook
 {
 	private:
-		Contact	list_of_contact[8];
-		size_t	index_contact;
-		size_t	nb_contact;
+		Contact	_list_of_contact[8];
+		size_t	_index_contact;
+		size_t	_nb_contact;
 	public:
 		PhoneBook();
 		void	add_contact(Contact contact);
-		void	build_contact();
+		int		build_contact();
 		void	search_contact();	
 		void	display_contacts();
 		void	display_contact(int i);

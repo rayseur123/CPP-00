@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.h                                          :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 16:54:37 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/05 15:59:56 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/12 14:46:06 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 class	Contact
 {
 	private:
-		std::string		first_name;
-		std::string		last_name;
-		std::string		nick_name;
-		std::string		phone_number;
-		std::string		darkest_secret;
+		std::string		_first_name;
+		std::string		_last_name;
+		std::string		_nick_name;
+		std::string		_phone_number;
+		std::string		_darkest_secret;
 	public:
 		void		set_first_name(std::string str);
 		void		set_last_name(std::string str);
