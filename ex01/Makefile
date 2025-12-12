@@ -42,7 +42,7 @@ LIBS_INCLUDES := $(addprefix $(LIBS_DIR), $(addsuffix /includes,$(LIBS_NAMES))) 
 
 CPPFLAGS += $(addprefix -I, $(LIBS_INCLUDES))
 
-SYS_LIBS = m X11 Xext
+SYS_LIBS =
 SYS_LIBS := $(addprefix -l, $(SYS_LIBS))
 
 # ---------------------------------------------------------#
