@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:25:59 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/12 14:40:27 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:10:44 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main()
 				return (1);
 		}
 		if (user_line == "SEARCH")
-			PhoneBook.search_contact();
+			if (PhoneBook.search_contact())
+				return (1);
 		if (user_line == "EXIT")
 			return (0);
 		std::cout << "Entrez une commande\n";

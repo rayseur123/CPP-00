@@ -6,7 +6,7 @@
 /*   By: njooris <njooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:56 by njooris           #+#    #+#             */
-/*   Updated: 2025/12/12 14:49:25 by njooris          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:11:25 by njooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,12 +138,12 @@ void	PhoneBook::display_contacts()
 		display_contact(i + 1);
 }
 
-void	PhoneBook::exit_prompt()
+int	PhoneBook::exit_prompt()
 {
 	std::string	user_line;
 
 	if (!_nb_contact)
-		return ;
+		return (0);
 	std::cout << "Entrez un id pour voir un user" << "\n";
 	while (getline(std::cin, user_line))
 	{
@@ -152,15 +152,18 @@ void	PhoneBook::exit_prompt()
 			&& atoi(user_line.c_str()) > 0)
 		{
 			display_contact_full(atoi(user_line.c_str()));
-			return ;	
+			return (0);	
 		}
 		else
 			std::cout << "Wrong id\n";
-	}	
+	}
+	return (1);
 }
 
-void	PhoneBook::search_contact()
+int		PhoneBook::search_contact()
 {
 	display_contacts();
-	exit_prompt();
+	if (exit_prompt())
+		return (1);
+	return (0);
 }
